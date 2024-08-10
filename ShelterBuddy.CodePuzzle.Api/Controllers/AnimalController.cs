@@ -34,8 +34,42 @@ public class AnimalController : ControllerBase
     }).ToArray();
 
     [HttpPost]
-    public void Post(AnimalModel newAnimal)
+    public IActionResult Post(AnimalModel newAnimal)
     {
-        throw new NotImplementedException();
+        if (string.IsNullOrEmpty(newAnimal.Name))
+        {
+            return BadRequest($"{nameof(newAnimal.Name)} is mandatory.");
+        }
+        
+        if (string.IsNullOrEmpty(newAnimal.Species))
+        {
+            return BadRequest($"{nameof(newAnimal.Species)} is mandatory.");
+        }
+
+        if (!newAnimal.DateOfBirth.HasValue && !newAnimal.AgeYears.HasValue && !newAnimal.AgeMonths.HasValue && !newAnimal.AgeWeeks.HasValue)
+        {
+            return BadRequest(
+                $@"Either {nameof(newAnimal.DateOfBirth)} or the Age fields 
+                ({nameof(newAnimal.AgeYears)}, {nameof(newAnimal.AgeMonths)}, {nameof(newAnimal.AgeWeeks)}) must be provided."                
+            );
+        }
+
+        var animal = new Animal
+        {
+            Name = newAnimal.Name,
+            Colour = newAnimal.Colour, 
+            DateFound = newAnimal.DateFound, 
+            DateLost = newAnimal.DateLost, 
+            MicrochipNumber = newAnimal.MicrochipNumber, 
+            DateInShelter = newAnimal.DateInShelter, 
+            DateOfBirth = newAnimal.DateOfBirth,
+            AgeYears = newAnimal.AgeYears, 
+            AgeMonths = newAnimal.AgeMonths, 
+            AgeWeeks = newAnimal.AgeWeeks, 
+            Species = newAnimal.Species
+        };
+        
+        repository.Add(animal);
+        return Ok("New animal added.");
     }
 }
