@@ -13,5 +13,24 @@ public class Animal : BaseEntity<Guid>
     public int? AgeYears { get; set; }
     public int? AgeMonths { get; set; }
     public int? AgeWeeks { get; set; }
-    public string AgeText => string.Empty;
+    public string AgeText => GenerateAgeTextArray();
+    private string GenerateAgeTextArray()
+    {
+        var ageTextArray = new List<string>();
+        
+        if (AgeYears.HasValue)
+        {
+            ageTextArray.Add(TextUtils.Pluralize(AgeYears.Value, "year"));
+        }
+        if (AgeMonths.HasValue)
+        {
+            ageTextArray.Add(TextUtils.Pluralize(AgeMonths.Value, "month"));
+        }
+        if (AgeWeeks.HasValue)
+        {
+            ageTextArray.Add(TextUtils.Pluralize(AgeWeeks.Value, "week"));
+        }
+
+        return string.Join(' ', ageTextArray);
+    }
 }
