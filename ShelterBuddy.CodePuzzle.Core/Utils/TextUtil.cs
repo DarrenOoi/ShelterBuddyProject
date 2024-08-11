@@ -1,4 +1,4 @@
-class TextUtils {
+class TextUtil {
     public static string Pluralize(int value, string unit)
     {
         if (value == 1) 

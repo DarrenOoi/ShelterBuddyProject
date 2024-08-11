@@ -1,4 +1,6 @@
-﻿namespace ShelterBuddy.CodePuzzle.Api.Models;
+﻿using ShelterBuddy.CodePuzzle.Core.Entities;
+
+namespace ShelterBuddy.CodePuzzle.Api.Models;
 
 public class AnimalModel
 {
@@ -15,4 +17,26 @@ public class AnimalModel
     public int? AgeMonths { get; init; }
     public int? AgeWeeks { get; init; }
     public string? AgeText { get; init; }
+
+    public AnimalModel()
+    {
+
+    }
+
+    public AnimalModel(Animal animal)
+    {
+        Id = $"{animal.Id}";
+        Name = animal.Name;
+        Colour = animal.Colour;
+        DateFound = animal.DateFound;
+        DateLost = animal.DateLost;
+        MicrochipNumber = animal.MicrochipNumber;
+        DateInShelter = animal.DateInShelter;
+        DateOfBirth = animal.DateOfBirth;
+        AgeText = animal.AgeText;
+        AgeMonths = animal.AgeMonths;
+        AgeWeeks = animal.AgeWeeks;
+        AgeYears = animal.AgeYears;
+        Species = animal.Species;
+    }
 }

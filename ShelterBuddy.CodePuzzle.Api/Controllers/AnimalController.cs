@@ -70,6 +70,6 @@ public class AnimalController : ControllerBase
         };
         
         repository.Add(animal);
-        return Ok("New animal added.");
+        return Ok(new AnimalModel(animal));
     }
 }

@@ -20,15 +20,15 @@ public class Animal : BaseEntity<Guid>
         
         if (AgeYears.HasValue)
         {
-            ageTextArray.Add(TextUtils.Pluralize(AgeYears.Value, "year"));
+            ageTextArray.Add(TextUtil.Pluralize(AgeYears.Value, "year"));
         }
         if (AgeMonths.HasValue)
         {
-            ageTextArray.Add(TextUtils.Pluralize(AgeMonths.Value, "month"));
+            ageTextArray.Add(TextUtil.Pluralize(AgeMonths.Value, "month"));
         }
         if (AgeWeeks.HasValue)
         {
-            ageTextArray.Add(TextUtils.Pluralize(AgeWeeks.Value, "week"));
+            ageTextArray.Add(TextUtil.Pluralize(AgeWeeks.Value, "week"));
         }
 
         return string.Join(' ', ageTextArray);
