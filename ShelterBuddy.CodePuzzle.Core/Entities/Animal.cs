@@ -20,17 +20,22 @@ public class Animal : BaseEntity<Guid>
         
         if (AgeYears.HasValue)
         {
-            ageTextArray.Add(TextUtil.Pluralize(AgeYears.Value, "year"));
+            ageTextArray.Add(Pluralize(AgeYears.Value, "year"));
         }
         if (AgeMonths.HasValue)
         {
-            ageTextArray.Add(TextUtil.Pluralize(AgeMonths.Value, "month"));
+            ageTextArray.Add(Pluralize(AgeMonths.Value, "month"));
         }
         if (AgeWeeks.HasValue)
         {
-            ageTextArray.Add(TextUtil.Pluralize(AgeWeeks.Value, "week"));
+            ageTextArray.Add(Pluralize(AgeWeeks.Value, "week"));
         }
 
         return string.Join(' ', ageTextArray);
+
+        static string Pluralize(int value, string unit)
+        {
+            return $"{value} {unit}{(value > 1 ? "s" : string.Empty)}";
+        }
     }
 }

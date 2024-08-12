@@ -76,7 +76,7 @@ public class AnimalControllerTests
         secondResult.MicrochipNumber.ShouldBeNull();
         secondResult.DateInShelter.ShouldBeNull();
         secondResult.DateOfBirth.ShouldBeNull();
-        secondResult.AgeText.ShouldBe(string.Empty);
+        secondResult.AgeText.ShouldBe("1 year 2 months 3 weeks");
         secondResult.AgeYears.ShouldBe(1);
         secondResult.AgeMonths.ShouldBe(2);
         secondResult.AgeWeeks.ShouldBe(3);
