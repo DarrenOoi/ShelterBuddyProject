@@ -15,7 +15,9 @@ As a backend developer at ShelterBuddy it is your job to develop the API that wi
 ## Assumptions:
 - Assume Species is a property and not a class
 - Assume case where Date of Birth = null and all Age fields = 0 (0 year 0 month 0 week) is valid
-
+- Assume that not all three of the Age fields are required for request to be valid when Date of Birth = null
+- Assume that leading and trailing whitespaces are allowed for Name and Species
+  
 ## Requirements:
 
 1. Add "Species" to animal.   
