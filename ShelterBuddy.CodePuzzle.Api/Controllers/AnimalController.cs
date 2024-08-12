@@ -36,12 +36,12 @@ public class AnimalController : ControllerBase
     [HttpPost]
     public IActionResult Post(AnimalModel newAnimal)
     {
-        if (string.IsNullOrEmpty(newAnimal.Name))
+        if (string.IsNullOrWhiteSpace(newAnimal.Name))
         {
             return BadRequest($"{nameof(newAnimal.Name)} is mandatory.");
         }
         
-        if (string.IsNullOrEmpty(newAnimal.Species))
+        if (string.IsNullOrWhiteSpace(newAnimal.Species))
         {
             return BadRequest($"{nameof(newAnimal.Species)} is mandatory.");
         }
