@@ -8,6 +8,14 @@ As a backend developer at ShelterBuddy it is your job to develop the API that wi
 2. The solution must build 
 3. All requirements should be met
 
+## Implementation:
+- POST endpoint in API to add new Animal
+- AgeText logic
+
+## Assumptions:
+- Assume Species is a property and not a class
+- Assume case where Date of Birth = null and all Age fields = 0 (0 year 0 month 0 week) is valid
+
 ## Requirements:
 
 1. Add "Species" to animal.   
